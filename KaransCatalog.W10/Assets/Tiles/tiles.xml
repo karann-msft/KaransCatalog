@@ -1,0 +1,19 @@
+<tile>
+  <visual branding="none">
+    <binding template="TileMedium">
+      <image src="ms-appx:///Assets/DataImages/logostoreapp-3.png" placement="background" />
+      <text hint-maxLines="5" hint-style="titleSubtle">My Product Catalog</text>
+      <text hint-wrap="true" hint-maxLines="5" hint-style="bodySubtle">Smartphones, Gaming PCs, All-in-ones, Laptops, 2-in-1s, Surface, Xbox</text>
+    </binding>
+    <binding template="TileWide">
+      <image src="ms-appx:///Assets/DataImages/logostoreapp-3.png" placement="background" />
+      <text hint-maxLines="5" hint-style="titleSubtle">My Product Catalog</text>
+      <text hint-wrap="true" hint-maxLines="5" hint-style="bodySubtle">Smartphones, Gaming PCs, All-in-ones, Laptops, 2-in-1s, Surface, Xbox</text>
+    </binding>
+    <binding template="TileLarge">
+      <image src="ms-appx:///Assets/DataImages/logostoreapp-3.png" placement="background" />
+      <text hint-maxLines="5" hint-style="titleSubtle">My Product Catalog</text>
+      <text hint-wrap="true" hint-maxLines="5" hint-style="bodySubtle">Smartphones, Gaming PCs, All-in-ones, Laptops, 2-in-1s, Surface, Xbox</text>
+    </binding>
+  </visual>
+</tile>

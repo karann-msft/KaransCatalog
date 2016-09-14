@@ -1,0 +1,118 @@
+<Page
+    x:Class="KaransCatalog.Pages.FavoritesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
+	xmlns:was_controls="using:AppStudio.Uwp.Controls"
+    xmlns:list_layouts="using:KaransCatalog.Layouts.List"
+    xmlns:was_actions="using:AppStudio.Uwp.Actions"
+    DataContext="{Binding ViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns:vm="using:KaransCatalog.ViewModels"
+    mc:Ignorable="d">
+    <was_controls:ShellControl.CommandBar>
+        <was_actions:ActionsCommandBar IsVisible="False"/>
+    </was_controls:ShellControl.CommandBar>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+		<RichTextBlock
+            Margin="24,12"
+            FontWeight="Bold"
+            Foreground="{StaticResource DescriptionForeground}"
+            Visibility="{Binding HasItems, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=True}">
+            <Paragraph>
+                <Run x:Uid="NoFavoritesTxt"/>
+                <Run Text="&#xE735;" FontFamily="Segoe MDL2 Assets"/>
+            </Paragraph>
+        </RichTextBlock>
+		<was_controls:SectionList
+			x:Uid="SectionListItem"
+			Grid.Row="1"
+			LoadingTemplateStaticHeight="3"
+			ErrorColor="{StaticResource DescriptionForeground}"			
+			TitleTemplate="{StaticResource SectionListTitleTemplate}"
+			LoadingTemplate="{StaticResource SectionListLoadingTemplate}">
+			<was_controls:SectionListItem
+				DataContext="{Binding Devices}"
+				HeaderLinkVisibility="Collapsed"
+				Visibility="{Binding HasItems, Converter={StaticResource BoolToVisibilityConverter}}"				
+				Background="Transparent"
+				ErrorVisibility="Collapsed"
+				LoadingVisibility="{Binding IsBusy, Converter={StaticResource BoolToVisibilityConverter}, FallbackValue=Collapsed}"
+				d:DataContext="{d:DesignData Source=/Assets/Design/DesignData.json, Type=vm:DesignViewModel, IsDesignTimeCreatable=true}">
+				<DataTemplate>
+					<list_layouts:ListBigVerticalCardBox
+						Margin="19,0,12,24"
+						DataContext="{Binding}"
+						OneRowModeEnabled="False"
+						ItemsSource="{Binding Items}"
+						ItemClickCommand="{Binding ItemClickCommand}"/>
+				</DataTemplate>
+			</was_controls:SectionListItem>
+			<was_controls:SectionListItem
+				DataContext="{Binding Smartphones}"
+				HeaderLinkVisibility="Collapsed"
+				Visibility="{Binding HasItems, Converter={StaticResource BoolToVisibilityConverter}}"				
+				Background="Transparent"
+				ErrorVisibility="Collapsed"
+				LoadingVisibility="{Binding IsBusy, Converter={StaticResource BoolToVisibilityConverter}, FallbackValue=Collapsed}"
+				d:DataContext="{d:DesignData Source=/Assets/Design/DesignData.json, Type=vm:DesignViewModel, IsDesignTimeCreatable=true}">
+				<DataTemplate>
+					<list_layouts:ListBigVerticalCardBox
+						Margin="19,0,12,24"
+						DataContext="{Binding}"
+						OneRowModeEnabled="False"
+						ItemsSource="{Binding Items}"
+						ItemClickCommand="{Binding ItemClickCommand}"/>
+				</DataTemplate>
+			</was_controls:SectionListItem>
+			<was_controls:SectionListItem
+				DataContext="{Binding Laptops}"
+				HeaderLinkVisibility="Collapsed"
+				Visibility="{Binding HasItems, Converter={StaticResource BoolToVisibilityConverter}}"				
+				Background="Transparent"
+				ErrorVisibility="Collapsed"
+				LoadingVisibility="{Binding IsBusy, Converter={StaticResource BoolToVisibilityConverter}, FallbackValue=Collapsed}"
+				d:DataContext="{d:DesignData Source=/Assets/Design/DesignData.json, Type=vm:DesignViewModel, IsDesignTimeCreatable=true}">
+				<DataTemplate>
+					<list_layouts:ListBigVerticalCard
+						Margin="19,0,12,24"
+						DataContext="{Binding}"
+						OneRowModeEnabled="False"
+						ItemsSource="{Binding Items}"
+						ItemClickCommand="{Binding ItemClickCommand}"/>
+				</DataTemplate>
+			</was_controls:SectionListItem>
+			<was_controls:SectionListItem
+				DataContext="{Binding Xbox}"
+				HeaderLinkVisibility="Collapsed"
+				Visibility="{Binding HasItems, Converter={StaticResource BoolToVisibilityConverter}}"				
+				Background="Transparent"
+				ErrorVisibility="Collapsed"
+				LoadingVisibility="{Binding IsBusy, Converter={StaticResource BoolToVisibilityConverter}, FallbackValue=Collapsed}"
+				d:DataContext="{d:DesignData Source=/Assets/Design/DesignData.json, Type=vm:DesignViewModel, IsDesignTimeCreatable=true}">
+				<DataTemplate>
+					<list_layouts:ListBigVerticalCardBox
+						Margin="19,0,12,24"
+						DataContext="{Binding}"
+						OneRowModeEnabled="False"
+						ItemsSource="{Binding Items}"
+						ItemClickCommand="{Binding ItemClickCommand}"/>
+				</DataTemplate>
+			</was_controls:SectionListItem>
+		</was_controls:SectionList>
+		<TextBlock
+			x:Uid="RoamingWarning"
+			Grid.Row="2"
+            Margin="12,0,0,0"
+			FontSize="12"
+			TextWrapping="Wrap"
+			Foreground="{StaticResource DescriptionForeground}"
+            Visibility="{Binding ShowRoamingWarning, Converter={StaticResource BoolToVisibilityConverter}}"/>
+    </Grid>
+</Page>
